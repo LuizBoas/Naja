@@ -1,16 +1,18 @@
 const express = require('express');
+const connection = require('./database/connection');
+
+const UsersControllers = require('./controllers/UsersControllers')
+const ProductsControllers = require('./controllers/ProductsControllers')
 
 const routes = express.Router();
 
-routes.post('/users', (request, response) => {
-    const body = request.body;
+routes.post('/users', UsersControllers.saveAuthorization);
+routes.get('/users', UsersControllers.index);
 
-    console.log(body);
+routes.post('/products', ProductsControllers.create);
+routes.get('/products', ProductsControllers.index);
+routes.delete('/products/:id', ProductsControllers.delete);
+routes.put('/products/:id', ProductsControllers.putAmount);
 
-    return response.json({
-        evento: 'test',
-        aluno: 'Cleiton' 
-    });
-});
 
 module.exports = routes;

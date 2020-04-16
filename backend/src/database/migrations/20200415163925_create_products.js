@@ -7,8 +7,6 @@ exports.up = function(knex) {
         table.int('amount').notNullable();
         table.decimal('price').notNullable();
         table.string('image').notNullable(); /* a pesquisar tipo*/
-        
-        /*lembrar de dar o "npx knex migrate:latest" quando adcionar os elemenos a entidade*/
     })
 };
 
