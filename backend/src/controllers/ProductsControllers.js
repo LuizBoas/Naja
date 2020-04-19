@@ -3,36 +3,54 @@ const connection = require('../database/connection');
 module.exports = {
     async create(request, response) {
         const { name, tag, amount, price, image } = request.body;
-        const users_id = request.headers.authorization;
+        const user_id = request.headers.authorization;
 
-        const [id] = await connection('products').insert({
-            name,
-            tag,
-            amount,
-            price,
-            image,
-        })
+        const [id] = await connection('products')
+            .insert({
+                name,
+                tag,
+                amount,
+                price,
+                image,
+            });
 
-        return response.json({id});
+        return response.json({ id });
     },
+
     async index(request, response) {
-        const products = await connection('products').select('*');
+        const products = await connection('products')
+            .select('*');
         
         return response.json(products);
     },
+
     async delete(request, response) {
         const { id } = request.params;
 
-        await connection('products').where('id', id).delete();
+        await connection('products')
+            .where('id', id)
+            .delete();
 
         return response.status(204).send();
     },
+
     async putAmount(request, response) {
         const { id } = request.params;
 
-        await connection('products').where('id', id).update({ amount: request.body.amount });
-       
-
+        await connection('products')
+            .where('id', id)
+            .update({ amount: request.body.amount });
+        
         return response.status(204).send();
+    },
+
+    async getSingle(request, response) {
+        const { id } = request.params;
+
+        const products = await connection('products')
+            .select('*')
+            .where('id', id);
+        
+        return response.json(products);
     }
 };

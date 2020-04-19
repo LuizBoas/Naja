@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import GoogleLogin from "react-google-login";
 
+import api from '../../services/api';
+
 import './styles.css';
 
 export default function Login() {
@@ -13,6 +15,20 @@ export default function Login() {
         setEmail(response.profileObj.email);
         setUrl(response.profileObj.imageUrl);
     };
+
+    async function handleLogin(e) {
+        e.preventDefault();
+
+        try {
+            const response = await api.post('users', { email })
+
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
+            console.log(response.data.name);
+        } catch {
+            alert('Deu erro, tente novamente');
+        }
+    }
 
     return (
         <div className="App">
