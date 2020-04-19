@@ -3,10 +3,11 @@ const connection = require('../database/connection');
 module.exports = {
     async create(request, response) {
         const { name, tag, amount, price, image } = request.body;
-        const user_id = request.headers.authorization;
+        const user = request.headers.authorization;
 
         const [id] = await connection('products')
             .insert({
+                user,
                 name,
                 tag,
                 amount,

@@ -14,6 +14,8 @@ export default function Register() {
     async function handleProducts(e) {
         e.preventDefault();
 
+        const user = localStorage.getItem('user');
+
         const data = {
             name,
             tag,
@@ -23,7 +25,11 @@ export default function Register() {
         };
 
         try {
-            const response = await api.post('products', data);
+            const response = await api.post('products', data, {
+                headers: {
+                    Authorization: user,
+                }
+            });
             alert(`Seu ID de acesso: ${response.data.id}`);
         } catch (err) {
             alert('Erro no cadastro, tente novamente');
