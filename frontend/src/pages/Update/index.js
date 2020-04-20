@@ -1,70 +1,43 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
 import api from '../../services/api';
 
-export default function Register() {
-    const [name, setName] = useState('');
-    const [tag, setTag] = useState('');
+export default function Update() {
     const [amount, setAmount] = useState('');
-    const [price, setPrice] = useState('');
-    const [image, setImage] = useState('');
-
-    // e prever o comportamento do componente
-    async function handleProducts(e) {
+ 
+    async function handleUpdate(e) {
         e.preventDefault();
 
+        const id = localStorage.getItem('id');
+
+        
+
         const data = {
-            name,
-            tag,
-            amount,
-            price,
-            image,
+            amount
         };
 
         try {
-            const response = await api.post('products', data);
-            alert(`Seu ID de acesso: ${response.data.id}`);
+            await api.put(`${window.location.pathname}`, data);
+
+            alert(`Atualizado com sucesso`);
         } catch (err) {
-            alert('Erro no cadastro, tente novamente');
+            alert('Erro em atualizar quantidade, tente novamente');
         }
-
     }
-
+    
     return (
         <div className="products-list">
-            <form onSubmit={ handleProducts }>
-                <input
-                    placeholder="Nome do produto"
-                    value={ name }
-                    onChange={ e => setName(e.target.value)}
-                />
-
-                <input
-                    placeholder="Tag"
-                    value={ tag }
-                    onChange={ e => setTag(e.target.value)}
-                />
-
+            <form onSubmit={ handleUpdate }>
                 <input
                     placeholder="Quantidade"
                     value={ amount }
                     onChange={ e => setAmount(e.target.value)}
                 />
 
-                <input
-                    placeholder="Preço"
-                    value={ price }
-                    onChange={ e => setPrice(e.target.value)}
-                />
-
-                <input
-                    placeholder="Link Imagem"
-                    value={ image }
-                    onChange={ e => setImage(e.target.value)}
-                />
-                <button type="submit">Cadastrar</button>
-            </form>
+                <button type="submit">Atualizar</button>
+        </form>
 
             <Link className="button" to="/products">Voltar para listagem</Link>
         </div>

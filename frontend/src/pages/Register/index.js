@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 import api from '../../services/api';
 
@@ -30,7 +35,7 @@ export default function Register() {
                     Authorization: user,
                 }
             });
-            alert(`Seu ID de acesso: ${response.data.id}`);
+            alert(`Produto cadastrado com sucesso!`);
         } catch (err) {
             alert('Erro no cadastro, tente novamente');
         }
@@ -46,11 +51,18 @@ export default function Register() {
                     onChange={ e => setName(e.target.value)}
                 />
 
-                <input
-                    placeholder="Tag"
-                    value={ tag }
-                    onChange={ e => setTag(e.target.value)}
-                />
+               
+                <FormControl component="fieldset">
+                    <FormLabel component="legend">Categorias</FormLabel>
+                    <RadioGroup value={tag} onChange={ e => setTag(e.target.value)}>
+                        <FormControlLabel value="TVs" control={<Radio />} label="TVs" />
+                        <FormControlLabel value="Eletrodomésticos" control={<Radio />} label="Eletrodomésticos" />
+                        <FormControlLabel value="Videogames" control={<Radio />} label="Videogames" />
+                        <FormControlLabel value="Celulares" control={<Radio />} label="Celulares" />
+                    </RadioGroup>
+                </FormControl>
+                  
+                
 
                 <input
                     placeholder="Quantidade"
