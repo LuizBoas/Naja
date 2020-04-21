@@ -65,8 +65,8 @@ export default function Products() {
     return (
         <div>
             <header>
-                <button onClick={"/products/new"}>Cadastrar novo produto</button>
-                <Link to to="/">
+                <Link to="/products/new">Cadastrar novo produto</Link>
+                <Link to="/">
                     LogOut (ToDO)
                 </Link>
             </header>
