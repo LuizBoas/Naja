@@ -45,6 +45,26 @@ module.exports = {
         return response.status(204).send();
     },
 
+    async putPrice(request, response) {
+        const { id } = request.params;
+
+        await connection('products')
+            .where('id', id)
+            .update({ price: request.body.price });
+        
+        return response.status(204).send();
+    },
+
+    async putImage(request, response) {
+        const { id } = request.params;
+
+        await connection('products')
+            .where('id', id)
+            .update({ image: request.body.image });
+        
+        return response.status(204).send();
+    },
+
     async getSingle(request, response) {
         const { id } = request.params;
 

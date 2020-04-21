@@ -1,0 +1,39 @@
+.products-list {
+    width: 100%;
+    max-width: 1120px;
+    height: 100vh;
+    margin: 0 auto;
+    
+    display: flex;
+    align-items: center; /* alinhar verticalmente ao centro*/
+    justify-content: center; /* alinhar horizontalmente ao centro*/
+}
+
+.products-list .content {
+    width: 100%;
+    padding: 96px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+
+.products-list .content form {
+    width: 100%;
+    max-width: 450px;
+}
+
+.products-list .content form input {
+    margin-top: 8px;
+}
+
+.products-list .content form .input-group{
+    display: flex;
+}
+
+.products-list .content form .input-group input + input {
+    margin-left: 8px;
+}

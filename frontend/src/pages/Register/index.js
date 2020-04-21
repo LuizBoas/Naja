@@ -7,6 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
 import api from '../../services/api';
+import './styles.css';
 
 export default function Register() {
     const [name, setName] = useState('');
@@ -44,47 +45,49 @@ export default function Register() {
 
     return (
         <div className="products-list">
-            <form onSubmit={ handleProducts }>
-                <input
-                    placeholder="Nome do produto"
-                    value={ name }
-                    onChange={ e => setName(e.target.value)}
-                />
+            <div className = "content">
+                <form onSubmit={ handleProducts }>
+                    <input
+                        placeholder="Nome do produto"
+                        value={ name }
+                        onChange={ e => setName(e.target.value)}
+                    />
 
-               
-                <FormControl component="fieldset">
-                    <FormLabel component="legend">Categorias</FormLabel>
-                    <RadioGroup value={tag} onChange={ e => setTag(e.target.value)}>
-                        <FormControlLabel value="TVs" control={<Radio />} label="TVs" />
-                        <FormControlLabel value="Eletrodomésticos" control={<Radio />} label="Eletrodomésticos" />
-                        <FormControlLabel value="Videogames" control={<Radio />} label="Videogames" />
-                        <FormControlLabel value="Celulares" control={<Radio />} label="Celulares" />
-                    </RadioGroup>
-                </FormControl>
-                  
-                
 
-                <input
-                    placeholder="Quantidade"
-                    value={ amount }
-                    onChange={ e => setAmount(e.target.value)}
-                />
+                    <FormControl component="fieldset">
+                        <FormLabel component="legend">Categorias</FormLabel>
+                        <RadioGroup value={tag} onChange={ e => setTag(e.target.value)}>
+                            <FormControlLabel value="TVs" control={<Radio />} label="TVs" />
+                            <FormControlLabel value="Eletrodomésticos" control={<Radio />} label="Eletrodomésticos" />
+                            <FormControlLabel value="Videogames" control={<Radio />} label="Videogames" />
+                            <FormControlLabel value="Celulares" control={<Radio />} label="Celulares" />
+                        </RadioGroup>
+                    </FormControl>
 
-                <input
-                    placeholder="Preço"
-                    value={ price }
-                    onChange={ e => setPrice(e.target.value)}
-                />
 
-                <input
-                    placeholder="Link Imagem"
-                    value={ image }
-                    onChange={ e => setImage(e.target.value)}
-                />
-                <button type="submit">Cadastrar</button>
-            </form>
 
-            <Link className="button" to="/products">Voltar para listagem</Link>
+                    <input
+                        placeholder="Quantidade"
+                        value={ amount }
+                        onChange={ e => setAmount(e.target.value)}
+                    />
+
+                    <input
+                        placeholder="Preço"
+                        value={ price }
+                        onChange={ e => setPrice(e.target.value)}
+                    />
+
+                    <input
+                        placeholder="Link Imagem"
+                        value={ image }
+                        onChange={ e => setImage(e.target.value)}
+                    />
+                    <button type="submit">Cadastrar</button>
+                </form>
+
+                <Link className="back-link" to="/products">Voltar para listagem</Link>
+            </div>
         </div>
     );
 }

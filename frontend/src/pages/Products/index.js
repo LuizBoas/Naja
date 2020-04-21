@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import { confirmAlert } from 'react-confirm-alert';
 
 import api from '../../services/api';
 
@@ -25,14 +26,18 @@ export default function Products() {
     async function handleDeleteProduct(id) {
         try {
             await api.delete(`products/${id}`);
-
-            setProducts(products.filter(products => products.id !== id));                       
+            setProducts(products.filter(products => products.id !== id)); 
+                
+            
         } catch (err) {
             alert('Erro ao deletar, tente novamente.')
         }
         
     }
-/*parte em densenvolvimento filter a cima*/
+    
+
+    
+/*parte em densenvolvimento filter a baixo*/
     const [state, setState] = React.useState({
         checkedTV: true,
         checkedEL: true,
@@ -60,10 +65,10 @@ export default function Products() {
     return (
         <div>
             <header>
-                <Link className="button" to="/products/new">Cadastrar novo produto</Link>
-                <button type="button">
+                <button onClick={"/products/new"}>Cadastrar novo produto</button>
+                <Link to to="/">
                     LogOut (ToDO)
-                </button>
+                </Link>
             </header>
 
             <h1>Lista de produtos</h1>
@@ -99,12 +104,13 @@ export default function Products() {
                         <p><strong>Amount</strong>: {products.amount}</p>
                         <p><strong>Price</strong>: {Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(products.price)}</p>
 
-                        <Link to={`/products/${products.id}`}>Editar produto</Link>
+                        <Link className="back-link" to={`/products/${products.id}`}>Editar produto</Link>
                         
 
-                        <button onClick={() => handleDeleteProduct(products.id)}  type="button">
+                        <button onClick={() => { if (window.confirm('Você realmente deseja remover este item?')) handleDeleteProduct(products.id) } }  type="button">
                             Apagar
                         </button>
+                        
                     </li>
                 ))}
             </ul>
