@@ -1,0 +1,46 @@
+.container {
+    width: 100%;
+    max-width: 1100px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.container h1 {
+    flex-direction: column-reverse;
+    color: black;
+
+}
+
+.stock ul {
+    width: 100%;
+    display: block;
+    float: left;
+    padding: 10px;
+    background: #FFF;
+    border-radius: 8px;
+}
+
+.stock li img {
+    width: 40%;
+    float: left;
+    margin-right: 15px;
+}
+
+
+.products-list {
+    padding-top: 1px;
+}
+
+form {
+    width: 100%;
+    max-width: 450px;
+}
+form {
+    width: 100%;
+    max-width: 450px;
+}
+
+form input,
+form textarea{
+    margin-top: 8px;
+}

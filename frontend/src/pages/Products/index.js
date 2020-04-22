@@ -108,16 +108,16 @@ export default function Products() {
                     {products.map(products => (
                         <li key={products.id}>
 
-                                <div class="product-header">
+                            <div class="product-header">
                                 <img src={ products.image } />
                                 <p><strong>Nome: </strong>{products.name}</p>
                                 <p><strong>Categoria: </strong>{products.tag}</p>
-                                <p><strong>Quantidade </strong>{products.amount}</p>
+                                <p><strong>Quantidade: </strong>{products.amount}</p>
                                 <p><strong>Preço: </strong>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(products.price)}</p>
-                                </div>
+                            </div>
 
                             <div class="buttons">
-                                <Link className="button" to={`/products/${products.id}`}>Editar produto</Link>
+                                <Link className="button" to={`/products/${products.id}`}>+ Detalhes</Link>
                                 <button class="button" onClick={() => { if (window.confirm('Você realmente deseja remover este item?')) handleDeleteProduct(products.id) } }  type="button">
                                     Apagar
                                 </button>

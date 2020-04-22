@@ -1,4 +1,4 @@
-.products-list {
+.new-products {
     width: 100%;
     max-width: 1120px;
     height: 100vh;
@@ -9,7 +9,7 @@
     justify-content: center; /* alinhar horizontalmente ao centro*/
 }
 
-.products-list .content {
+.new-products .content {
     width: 100%;
     padding: 96px;
     background: #f0f0f5;
@@ -21,19 +21,30 @@
     align-items: center;  
 }
 
-.products-list .content form {
+.new-products .content section {
+    width: 100%;
+    max-width: 380px;
+}
+
+.new-products .content section h1 {
+    margin: 64px 0 32px;
+    font-size: 32px;
+}
+
+.new-products .content section p {
+    font-size: 18px;
+    color:#737380;
+    line-height: 32px;
+}
+.new-products .content form {
     width: 100%;
     max-width: 450px;
 }
+.select {
+    margin-top: 80px;
+}
 
-.products-list .content form input {
+.new-products .content form input,
+.new-products .content form textarea{
     margin-top: 8px;
-}
-
-.products-list .content form .input-group{
-    display: flex;
-}
-
-.products-list .content form .input-group input + input {
-    margin-left: 8px;
 }

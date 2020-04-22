@@ -5,9 +5,13 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import BackIcon from '@material-ui/icons/ArrowBack';
 
+
+import logo from '../../assets/logo.png'; 
 import api from '../../services/api';
 import './styles.css';
+
 
 export default function Register() {
     const [name, setName] = useState('');
@@ -44,8 +48,16 @@ export default function Register() {
     }
 
     return (
-        <div className="products-list">
+        <div className="new-products">
             <div className = "content">
+                <section>
+                    <h1>Cadastro novo produto</h1>
+                    <img src={logo} alt="Naja"/>
+                    <Link className="back-link" to="/products">
+                        <BackIcon size={16} color="#E02041"/>
+                        Volta pra listagem
+                    </Link>           
+                </section>
                 <form onSubmit={ handleProducts }>
                     <input
                         placeholder="Nome do produto"
@@ -54,7 +66,7 @@ export default function Register() {
                     />
 
 
-                    <FormControl component="fieldset">
+                    <FormControl className="select" component="fieldset">
                         <FormLabel component="legend">Categorias</FormLabel>
                         <RadioGroup value={tag} onChange={ e => setTag(e.target.value)}>
                             <FormControlLabel value="TVs" control={<Radio />} label="TVs" />
@@ -83,10 +95,10 @@ export default function Register() {
                         value={ image }
                         onChange={ e => setImage(e.target.value)}
                     />
-                    <button type="submit">Cadastrar</button>
+                    <button className="button" type="submit">Cadastrar</button>
                 </form>
 
-                <Link className="back-link" to="/products">Voltar para listagem</Link>
+               
             </div>
         </div>
     );

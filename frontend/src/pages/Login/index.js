@@ -6,7 +6,7 @@ import { login } from '../../services/api';
 
 import './styles.css';
 
-import logo2 from '../../assets/logo2.png';
+import logo from '../../assets/logo.png';
 
 export default function Login() {
     const handleLogin = e => {
@@ -21,7 +21,7 @@ export default function Login() {
 
     return (
         <div className="App">
-            <img src={ logo2 } />
+            <img src={ logo } />
 
             <div class="login">
             <h1>Login with Google</h1>

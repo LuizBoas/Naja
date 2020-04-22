@@ -23,6 +23,10 @@
     margin: 10px auto;
 }
 
+.stock li:hover{
+    filter: brightness(90%);
+}
+
 .stock li {
     width: 100%;
     display: block;
