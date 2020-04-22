@@ -20,7 +20,8 @@ module.exports = {
 
     async index(request, response) {
         const products = await connection('products')
-            .select('*');
+            .select('*')
+            .orderBy('amount');
         
         return response.json(products);
     },
@@ -73,5 +74,15 @@ module.exports = {
             .where('id', id);
         
         return response.json(products);
-    }
+    },
+
+    async getTag(request, response) {
+        const { id } = request.params;
+
+        const products = await connection('products')
+            .select('id')
+            .where('tag', id.tag);
+        
+        return response.json(products);
+    },
 };

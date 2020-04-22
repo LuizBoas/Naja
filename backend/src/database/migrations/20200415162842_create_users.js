@@ -1,8 +1,7 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('users', function(table){
-       table.string('authorization').primary();
-       
+       table.string('email').notNullable();
     })
 };
 

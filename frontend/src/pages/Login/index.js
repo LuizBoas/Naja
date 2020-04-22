@@ -2,47 +2,37 @@ import React, { useState } from "react";
 import GoogleLogin from "react-google-login";
 
 import api from '../../services/api';
+import { login } from '../../services/api';
 
 import './styles.css';
 
+import logo2 from '../../assets/logo2.png';
+
 export default function Login() {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [url, setUrl] = useState("");
-
-    const responseGoogle = response => {
-        setName(response.profileObj.name);
-        setEmail(response.profileObj.email);
-        setUrl(response.profileObj.imageUrl);
-    };
-
-    async function handleLogin(e) {
-        e.preventDefault();
-
+    const handleLogin = e => {
         try {
-            const response = await api.post('users', { email })
-
-            localStorage.setItem('name', name);
-            localStorage.setItem('email', email);
-            console.log(response.data.name);
+          localStorage.setItem('url', e.profileObj.url);
+          localStorage.setItem('name', e.profileObj.name);
+          localStorage.setItem('email', e.profileObj.email);
         } catch {
-            alert('Deu erro, tente novamente');
+          alert("Problema na autenticação, tente novamente.");
         }
-    }
+      };
 
     return (
         <div className="App">
+            <img src={ logo2 } />
+
+            <div class="login">
             <h1>Login with Google</h1>
-            <h2>Welcome: {name}</h2>
-            <h2>Email: {email}</h2>
-            <img src={url} alt={name} />
             <GoogleLogin
-                clientId="327559392172-5pbfegfr9087bo8cl8n97f1bqk9d161n.apps.googleusercontent.com"
+                clientId="327559392172-qdc1q6hojs17quj74aivqklaajv1dmpj.apps.googleusercontent.com"
                 buttonText="Login"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
+                onSuccess={handleLogin}
+                onFailure={handleLogin}
                 cookiePolicy={"single_host_origin"}
             />
+            </div>
         </div>
     );
 }

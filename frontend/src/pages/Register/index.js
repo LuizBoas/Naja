@@ -20,7 +20,7 @@ export default function Register() {
     async function handleProducts(e) {
         e.preventDefault();
 
-        const user = localStorage.getItem('user');
+        const user = localStorage.getItem('email');
 
         const data = {
             name,

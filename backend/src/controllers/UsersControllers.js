@@ -2,14 +2,18 @@ const connection = require('../database/connection');
 
 module.exports = {
     async saveAuthorization(request, response) {
-        const {authorization} = request.body;
+        const { email } = request.body;
+        const isRegister = await connection('users')
+            .select('*')
+            .where('email', email);
+        
+        if (!isRegister) {
+            await connection('users').insert({ email })
+        }
 
-        await connection('users').insert({
-            authorization
-        })
-
-        return response.json({authorization});
+        return response.json({ email });
     },
+    
     async index(request, response) {
         const users = await connection('users').select('*');
         
