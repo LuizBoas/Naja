@@ -52,7 +52,8 @@ export default function Register() {
             <div className = "content">
                 <section>
                     <img src={logo} alt="Naja"/>
-                    <h1>Cadastro novo produto</h1>
+                    <h1>Cadastro:</h1>
+                    <p>Adcione um item ao seu estoque!</p>
                     <Link className="back-link" to="/products">
                         <BackIcon size={16} color="#E02041"/>
                         Volta pra listagem
@@ -65,14 +66,13 @@ export default function Register() {
                         onChange={ e => setName(e.target.value)}
                     />
 
-
-                    <FormControl className="select" component="fieldset">
-                        <FormLabel component="legend">Categorias</FormLabel>
+                    <FormControl component="fieldset">
+                        <FormLabel component="legend">Categoria:</FormLabel>
                         <RadioGroup value={tag} onChange={ e => setTag(e.target.value)}>
-                            <FormControlLabel value="TVs" control={<Radio />} label="TVs" />
+                            <FormControlLabel className="select-primary" value="TVs" control={<Radio />} label="TVs" />
                             <FormControlLabel value="Eletrodomésticos" control={<Radio />} label="Eletrodomésticos" />
                             <FormControlLabel value="Videogames" control={<Radio />} label="Videogames" />
-                            <FormControlLabel value="Celulares" control={<Radio />} label="Celulares" />
+                            <FormControlLabel className="select-last" value="Celulares" control={<Radio />} label="Celulares" />
                         </RadioGroup>
                     </FormControl>
 
@@ -89,7 +89,7 @@ export default function Register() {
                     />
 
                     <input
-                        placeholder="Link Imagem"
+                        placeholder="Link da imagem"
                         value={ image }
                         onChange={ e => setImage(e.target.value)}
                     />

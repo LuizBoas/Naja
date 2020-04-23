@@ -13,8 +13,8 @@
     width: 100%;
     padding: 96px;
     background: #f0f0f5;
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 29px;
 
     display: flex;
     justify-content: space-between;
@@ -27,12 +27,30 @@
 }
 .new-products .content section img {
     margin-left: -65px;
+    padding-top: -100px;
+    margin-top: -160px;
     display: flex;
 
 }
 .new-products .content section h1 {
-    margin: 64px 0 32px;
-    font-size: 32px;
+    margin: 64px 0px 32px;
+    margin-top: -100px ;
+    font-size: 37px;
+}
+
+.new-products .content section p {
+    font-size: 18px;
+    color: #737380;
+    line-height: 32px;
+}
+
+.new-products .content section .back-link {
+    margin-top: 200px;
+    margin-bottom: -40px;;
+}
+
+.new-products .content section .back-link:hover {
+    filter: brightness(80%);
 }
 
 .new-products .content form {
@@ -49,3 +67,18 @@
     display: flex;
 }
 
+.new-products .content form .select-primary {
+    margin-top: 10px;
+}
+
+.new-products .content form .select-last {
+    margin-bottom: 3px;
+}
+
+.new-products .content form button {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    max-width: 450px;
+    padding: 10px;
+}

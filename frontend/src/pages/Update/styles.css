@@ -93,6 +93,5 @@ form textarea{
 }
 
 .up-link:hover {
-    
-
+    filter: brightness(80%);
 }

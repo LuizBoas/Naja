@@ -10,6 +10,7 @@ import './styles.css';
 
 export default function Products() {
     const [products, setProducts] = useState([]);
+    const [allproducts, setallProducts] = useState([])
     
     const avatar = localStorage.getItem('avatar');
     const name = localStorage.getItem('name');
@@ -19,6 +20,7 @@ export default function Products() {
         api.get('products')
             .then(response => {
                 setProducts(response.data);
+                setallProducts(response.data);
         })
     }, []);
 
@@ -34,9 +36,9 @@ export default function Products() {
         
     }
     
-
-    
 /*parte em densenvolvimento filter a baixo*/
+    
+
     const [state, setState] = React.useState({
         checkedTV: true,
         checkedEL: true,
@@ -44,22 +46,126 @@ export default function Products() {
         checkedCL: true,
     });
     
-    const handleChange = (event) => {
+    async function handleChangeTV(event) {
         setState({ ...state, [event.target.name]: event.target.checked });
-        console.log(event.target.name);
-        if(state.checkedTV === true){ 
-            setProducts(products.filter(products => products.tag === "TVs"));
+        setProducts(allproducts);
+        
+        if(event.target.checked !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "TVs"))
+            });
+            console.log(products);
         }
-        if(state.checkedEL === true){ 
-            setProducts(products.filter(products => products.tag === "Eletrodomésticos"));
+        if(state.checkedEL !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "Eletrodomésticos"));
+            });
+            console.log(products);
         }
-        if(state.checkedVG === true){ 
-            setProducts(products.filter(products => products.tag === "Videogames"));
+        if(state.checkedVG !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "Videogames"));
+            });
         }
-        if(state.checkedCL === true){ 
-            setProducts(products.filter(products => products.tag === "Celulares"));
+        if(state.checkedCL !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "Celulares"));
+            });
+            console.log(products);
         }
-    };
+    }
+
+    async function handleChangeEL(event) {
+        setState({ ...state, [event.target.name]: event.target.checked });
+        setProducts(allproducts);
+        
+        if(event.target.checked !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "Eletrodomésticos"))
+            });
+            console.log(products);
+        }
+        if(state.checkedTV !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "TVs"));
+            });
+            console.log(products);
+        }
+        if(state.checkedVG !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "Videogames"));
+            });
+        }
+        if(state.checkedCL !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "Celulares"));
+            });
+            console.log(products);
+        }
+        
+    }
+
+    async function handleChangeVG(event) {
+        setState({ ...state, [event.target.name]: event.target.checked });
+        setProducts(allproducts);
+        
+        if(event.target.checked !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "Videogames"))
+            });
+            console.log(products);
+        }
+        if(state.checkedTV !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "TVs"));
+            });
+            console.log(products);
+        }
+        if(state.checkedEL !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "Eletrodomésticos"));
+            });
+        }
+        if(state.checkedCL !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "Celulares"));
+            });
+            console.log(products);
+        }
+        
+    }
+
+    async function handleChangeCE(event) {
+        setState({ ...state, [event.target.name]: event.target.checked });
+        setProducts(allproducts);
+        
+        if(event.target.checked !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "Celulares"))
+            });
+            console.log(products);
+        }
+        if(state.checkedTV !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "TVs"));
+            });
+            console.log(products);
+        }
+        if(state.checkedVG !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "Videogames"));
+            });
+        }
+        if(state.checkedEL !== true){
+            setProducts((products) => {
+                return (products.filter(products => products.tag !== "Eletrodomésticos"));
+            });
+            console.log(products);
+        }
+        
+    }
+
+
 
 /*parte em densenvolvimento filter a cima*/
     return (
@@ -84,19 +190,19 @@ export default function Products() {
 {/*parte em densenvolvimento filter a baixo*/}
             <FormGroup row>
                 <FormControlLabel 
-                    control={<Switch checked={state.checkedTV} onChange={handleChange} name="checkedTV" />}
+                    control={<Switch checked={state.checkedTV} onChange={handleChangeTV} name="checkedTV" />}
                     label="TVs"
                 />
                 <FormControlLabel
-                    control={<Switch checked={state.checkedEL} onChange={handleChange} name="checkedEL"/>}
+                    control={<Switch checked={state.checkedEL} onChange={handleChangeEL} name="checkedEL"/>}
                     label="Eletrodomésticos"
                 />
                 <FormControlLabel 
-                    control={<Switch checked={state.checkedVG} onChange={handleChange} name="checkedVG"/>} 
+                    control={<Switch checked={state.checkedVG} onChange={handleChangeVG} name="checkedVG"/>} 
                     label="Videogames" 
                 />
                 <FormControlLabel 
-                    control={<Switch checked={state.checkedCL} onChange={handleChange} name="checkedCL"/>} 
+                    control={<Switch checked={state.checkedCL} onChange={handleChangeCE} name="checkedCL"/>} 
                     label="Celulares" 
                 />
             </FormGroup>
