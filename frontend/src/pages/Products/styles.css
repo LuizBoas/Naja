@@ -1,3 +1,10 @@
+.container {
+    width: 100%;
+    max-width: 1100px;
+    position: relative;
+    margin: 0 auto;
+}
+
 .profile {
     width: 100%;
     max-width: 1180px;
@@ -5,15 +12,10 @@
     margin: 32px auto;
 }
 
-.container {
-    width: 100%;
-    max-width: 720px;
-    position: relative;
-    margin: 0 auto;
-}
+.container h1 {
+    flex-direction: column-reverse;
+    color: black;
 
-.button {
-    max-width: 200px;
 }
 
 .container li {
@@ -23,8 +25,17 @@
     margin: 10px auto;
 }
 
-.stock li:hover{
-    filter: brightness(90%);
+.button {
+    max-width: 230px;
+}
+
+.stock ul {
+    width: 100%;
+    display: block;
+    float: left;
+    padding: 10px;
+    background: #FFF;
+    border-radius: 8px;
 }
 
 .stock li {
@@ -34,6 +45,10 @@
     padding: 10px;
     background: #FFF;
     border-radius: 8px;
+}
+
+.stock li:hover{
+    filter: brightness(95%);
 }
 
 .esgotado {

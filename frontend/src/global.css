@@ -7,7 +7,6 @@
     box-sizing: border-box;
 }
 
-
 body {
     font: 400 14px Muli, sans-serif;
     background: #F0F0F5;
@@ -59,15 +58,15 @@ form textarea{
 }
 
 .button:hover {
-    filter: brightness(90%); /* quando passar o mouse em cima fazer efeito de deixar mais escuro */
+    filter: brightness(80%); /* quando passar o mouse em cima fazer efeito de deixar mais escuro */
 }
 
 .back-link{
     display: flex;
     align-items: center;
     margin-top: 40px;
-    color: #41414d;
-    font-size: 18px;
+    color: #23b3b8;
+    font-size: 25px;
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.2s;
@@ -81,7 +80,5 @@ form textarea{
     opacity: 0.8;
 }
 
-form:houver{
-    filter: brightness(90%);
-}
+
 

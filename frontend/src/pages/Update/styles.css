@@ -1,34 +1,57 @@
-.container {
+.update-container {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1500px;
     position: relative;
     margin: 0 auto;
+    margin-top: 100px;
+    
 }
 
-.container h1 {
-    flex-direction: column-reverse;
-    color: black;
 
-}
 
-.stock ul {
+.update-stock ul {
     width: 100%;
     display: block;
     float: left;
     padding: 10px;
-    background: #FFF;
+    background: white;
     border-radius: 8px;
 }
 
-.stock li img {
+.update-stock li {
+    width: 100%;
+    display: block;
+    float: left;
+    padding: 10px;
+    background:white;
+    border-radius: 8px;
+}
+
+.update-stock li img {
     width: 40%;
     float: left;
     margin-right: 15px;
+    
 }
 
+.atualizar {
+    width: 100%;
+    max-width: 1500px;
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    float: left;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
 
-.products-list {
-    padding-top: 1px;
+     
+}
+
+.atualizar h1 {
+    flex-direction: column-reverse;
+    color: black;
+
 }
 
 form {
@@ -43,4 +66,33 @@ form {
 form input,
 form textarea{
     margin-top: 8px;
+}
+
+.atualizar form button  {
+    float: left;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    max-width: 450px;
+    padding: 10px;
+}
+
+.up-link{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 1200px;
+    color: #23b3b8;
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+    opacity: 0.8;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.up-link:hover {
+    
+
 }

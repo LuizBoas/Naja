@@ -4,10 +4,8 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
-import api from '../../services/api';
-
 import { login, logout } from '../../services/auth';
-
+import api from '../../services/api';
 import './styles.css';
 
 export default function Products() {
@@ -103,6 +101,7 @@ export default function Products() {
                 />
             </FormGroup>
 {/*parte em densenvolvimento filter a cima^*/}
+
             <div class="stock">
                 <ul>
                     {products.map(products => (

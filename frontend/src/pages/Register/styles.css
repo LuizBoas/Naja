@@ -25,26 +25,27 @@
     width: 100%;
     max-width: 380px;
 }
+.new-products .content section img {
+    margin-left: -65px;
+    display: flex;
 
+}
 .new-products .content section h1 {
     margin: 64px 0 32px;
     font-size: 32px;
 }
 
-.new-products .content section p {
-    font-size: 18px;
-    color:#737380;
-    line-height: 32px;
-}
 .new-products .content form {
     width: 100%;
     max-width: 450px;
 }
-.select {
-    margin-top: 80px;
+
+.new-products .content form input {
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
-.new-products .content form input,
-.new-products .content form textarea{
-    margin-top: 8px;
+.new-products .content form .input-group{
+    display: flex;
 }
+

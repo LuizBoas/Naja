@@ -74,8 +74,8 @@ export default function Update() {
     }
     
     return (
-        <div className= "container">
-            <div class="stock">
+        <div className= "update-container">
+            <div class="update-stock">
                 <ul>
                     {products.map(products => (
                         <li key={products.id}>
@@ -96,9 +96,9 @@ export default function Update() {
                     ))}
                 </ul>
             </div>
-            <h1>Editar dados:</h1>
+            
             <div className="atualizar">
-                
+                <h1>Editar dados:</h1>
                 <form onSubmit={ handleAmount }>
                     <input
                         placeholder="Quantidade"
@@ -130,8 +130,8 @@ export default function Update() {
                 </form>
 
 
-                <Link className="back-link" to="/products">
-                        <BackIcon size={16} color="#E02041"/>
+                <Link className="up-link" to="/products">
+                        <BackIcon/>
                         Volta pra listagem
                 </Link> 
             </div>

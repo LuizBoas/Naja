@@ -51,8 +51,8 @@ export default function Register() {
         <div className="new-products">
             <div className = "content">
                 <section>
-                    <h1>Cadastro novo produto</h1>
                     <img src={logo} alt="Naja"/>
+                    <h1>Cadastro novo produto</h1>
                     <Link className="back-link" to="/products">
                         <BackIcon size={16} color="#E02041"/>
                         Volta pra listagem
@@ -76,8 +76,6 @@ export default function Register() {
                         </RadioGroup>
                     </FormControl>
 
-
-
                     <input
                         placeholder="Quantidade"
                         value={ amount }
@@ -97,8 +95,6 @@ export default function Register() {
                     />
                     <button className="button" type="submit">Cadastrar</button>
                 </form>
-
-               
             </div>
         </div>
     );
