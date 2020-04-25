@@ -22,6 +22,7 @@ export default function Routes() {
     );
 }
 
+
 /*
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route

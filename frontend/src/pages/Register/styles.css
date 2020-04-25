@@ -1,6 +1,6 @@
 .new-products {
     width: 100%;
-    max-width: 1120px;
+    max-width: 960px;
     height: 100vh;
     margin: 0 auto;
     
@@ -11,8 +11,8 @@
 
 .new-products .content {
     width: 100%;
-    padding: 96px;
-    background: #f0f0f5;
+    padding: 32px;
+    background: #FFF;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 29px;
 

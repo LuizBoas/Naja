@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BackIcon from '@material-ui/icons/ArrowBack';
 
-
 import api from '../../services/api';
 
 import './styles.css';
@@ -75,29 +74,25 @@ export default function Update() {
     
     return (
         <div className= "update-container">
-            <div class="update-stock">
-                <ul>
-                    {products.map(products => (
-                        <li key={products.id}>
+            <Link className="up-link" to="/products">
+                <BackIcon/>
+                Volta pra listagem
+            </Link> 
 
-                            <div class="product-header">
+            <div class="update-stock">
+                    {products.map(products => (
+                            <div class="product-header product-update" key={products.id}>
                                 <img src={ products.image } />
                                 <p><strong>Código: </strong>{products.id}</p>
                                 <p><strong>Nome: </strong>{products.name}</p>
                                 <p><strong>Categoria: </strong>{products.tag}</p>
                                 <p><strong>Quantidade: </strong>{products.amount}</p>
                                 <p><strong>Preço: </strong>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(products.price)}</p>
-                                <p>Criado pelo usuário {products.user}</p>                          
+                                <p><strong>Cadastrado por: </strong>{products.user}</p>
                             </div>
-
-                            
-
-                        </li>
                     ))}
-                </ul>
-            </div>
-            
-            <div className="atualizar">
+
+                <div className="atualizar">
                 <h1>Editar dados:</h1>
                 <form onSubmit={ handleAmount }>
                     <input
@@ -128,13 +123,10 @@ export default function Update() {
 
                     <button type="submit" className="button" >Atualizar</button>
                 </form>
+                </div>
 
-
-                <Link className="up-link" to="/products">
-                        <BackIcon/>
-                        Volta pra listagem
-                </Link> 
             </div>
+            
         </div>
     );      
 }

@@ -4,7 +4,8 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
-import { login, logout } from '../../services/auth';
+import logo from '../../assets/logo.png';
+import { logout } from '../../services/auth';
 import api from '../../services/api';
 import './styles.css';
 
@@ -12,7 +13,6 @@ export default function Products() {
     const [products, setProducts] = useState([]);
     const [allproducts, setallProducts] = useState([])
     
-    const avatar = localStorage.getItem('avatar');
     const name = localStorage.getItem('name');
     const email = localStorage.getItem('email');
 
@@ -165,27 +165,26 @@ export default function Products() {
         
     }
 
-
-
 /*parte em densenvolvimento filter a cima*/
+
     return (
         <div class="container">
             <header class="header">
-                <div class="profile">
-                    <img src={ avatar } />
-                    <p><strong>Nome: </strong>{ name }</p>
-                    <p><strong>Email: </strong>{ email }</p>
+                <div class="superior-header">
+                    <img class="logo" src={ logo } />
+                    <div class="profile">
+                        <p><strong>Nome: </strong>{ name }</p>
+                        <p><strong>Email: </strong>{ email }</p>
+                    </div>
+                    <div class="new-logout">
+                        <Link to="/products/new" style={{ margin: "0 5% 0 0" }} class="button product">+Produto</Link>
+                        <Link to="/" class="button logout" onClick={ logout }>Logout</Link>
+                    </div>
                 </div>
-                <div class="new-logout">
-                    <Link to="/" class="button" onClick={ logout }>Logout</Link>
-                    <Link to="/products/new" class="button">+Produto</Link>
-                    <button onClick={ login }>Login</button>
-                </div>
+
                 <div class="sub-header">
                     <h1>Lista de produtos</h1>
-                </div>
-            </header>
-
+                
             
 {/*parte em densenvolvimento filter a baixo*/}
             <FormGroup row>
@@ -206,12 +205,17 @@ export default function Products() {
                     label="Celulares" 
                 />
             </FormGroup>
+
+            </div>
+            </header>
 {/*parte em densenvolvimento filter a cima^*/}
 
             <div class="stock">
                 <ul>
                     {products.map(products => (
-                        <li key={products.id}>
+                        <li key={products.id} className={ 
+                            products.amount === 0 ? "esgotado" : 
+                            products.amount < 10 ? "baixo" : "normal" }>
 
                             <div class="product-header">
                                 <img src={ products.image } />

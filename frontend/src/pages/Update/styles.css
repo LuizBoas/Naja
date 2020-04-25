@@ -1,20 +1,25 @@
 .update-container {
     width: 100%;
-    max-width: 1500px;
+    max-width: 960px;
     position: relative;
     margin: 0 auto;
-    margin-top: 100px;
-    
+    background: white;
+    border-radius: 8px 8px 0 0;
+    margin-top: 100px;    
 }
 
-
+.update-stock {
+    display: block;
+    float: left;
+    width: 100%;
+    background: #FFF;
+}
 
 .update-stock ul {
     width: 100%;
     display: block;
     float: left;
     padding: 10px;
-    background: white;
     border-radius: 8px;
 }
 
@@ -23,8 +28,6 @@
     display: block;
     float: left;
     padding: 10px;
-    background:white;
-    border-radius: 8px;
 }
 
 .update-stock li img {
@@ -34,24 +37,31 @@
     
 }
 
-.atualizar {
-    width: 100%;
-    max-width: 1500px;
-    position: relative;
-    margin: 0 auto;
-    display: block;
-    float: left;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
+.update-container .product-header {
+    width: 70%;
+}
 
-     
+.product-update {
+    padding: 20px;
+}
+
+.product-update img {
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.atualizar {
+    width: 30%;
+    float: left;
+    display: block;
+    padding: 0 20px;
+    background: white;
+    border-radius: 8px;     
 }
 
 .atualizar h1 {
     flex-direction: column-reverse;
     color: black;
-
 }
 
 form {
@@ -77,19 +87,17 @@ form textarea{
     padding: 10px;
 }
 
-.up-link{
+.up-link {
     display: flex;
     align-items: center;
-    margin-top: 20px;
-    margin-left: 1200px;
     color: #23b3b8;
     font-size: 25px;
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.2s;
     opacity: 0.8;
-    padding-top: 20px;
-    padding-bottom: 5px;
+    padding: 20px 0;
+    margin-left: 25px;
 }
 
 .up-link:hover {

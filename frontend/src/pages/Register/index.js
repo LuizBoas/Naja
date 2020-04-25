@@ -7,11 +7,9 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import BackIcon from '@material-ui/icons/ArrowBack';
 
-
 import logo from '../../assets/logo.png'; 
 import api from '../../services/api';
 import './styles.css';
-
 
 export default function Register() {
     const [name, setName] = useState('');
@@ -20,11 +18,13 @@ export default function Register() {
     const [price, setPrice] = useState('');
     const [image, setImage] = useState('');
 
+    const user = localStorage.getItem('name');
+
     // e prever o comportamento do componente
     async function handleProducts(e) {
         e.preventDefault();
 
-        const user = localStorage.getItem('email');
+        const user = localStorage.getItem('name');
 
         const data = {
             name,
@@ -60,14 +60,16 @@ export default function Register() {
                     </Link>           
                 </section>
                 <form onSubmit={ handleProducts }>
+                    <h2>Nome:</h2>
                     <input
                         placeholder="Nome do produto"
                         value={ name }
                         onChange={ e => setName(e.target.value)}
                     />
 
+                    <h2>Categoria:</h2>
                     <FormControl component="fieldset">
-                        <FormLabel component="legend">Categoria:</FormLabel>
+                        <FormLabel component="legend"></FormLabel>
                         <RadioGroup value={tag} onChange={ e => setTag(e.target.value)}>
                             <FormControlLabel className="select-primary" value="TVs" control={<Radio />} label="TVs" />
                             <FormControlLabel value="Eletrodomésticos" control={<Radio />} label="Eletrodomésticos" />
@@ -76,18 +78,21 @@ export default function Register() {
                         </RadioGroup>
                     </FormControl>
 
+                    <h2>Quantidade:</h2>
                     <input
                         placeholder="Quantidade"
                         value={ amount }
                         onChange={ e => setAmount(e.target.value)}
                     />
 
+                    <h2>Preço:</h2>
                     <input
                         placeholder="Preço"
                         value={ price }
                         onChange={ e => setPrice(e.target.value)}
                     />
 
+                    <h2>Imagem:</h2>
                     <input
                         placeholder="Link da imagem"
                         value={ image }
