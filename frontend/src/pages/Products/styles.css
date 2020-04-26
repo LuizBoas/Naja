@@ -5,13 +5,6 @@
     margin: 0 auto;
 }
 
-.profile {
-    width: 100%;
-    max-width: 1180px;
-    padding: 0 30px;
-    margin: 32px auto;
-}
-
 .container h1 {
     flex-direction: column-reverse;
     color: black;
@@ -22,6 +15,13 @@
     padding: 10px;
     height: auto;
     margin: 10px auto;
+}
+
+.profile {
+    width: 100%;
+    max-width: 1180px;
+    padding: 0 30px;
+    margin: 32px auto;
 }
 
 .button {
@@ -55,10 +55,14 @@
 
 .esgotado {
     background-color: #F00;
+    opacity:0.7;
+    
 }
 
 .baixo {
     background-color: #FF0;
+    opacity:0.7;
+    
 }
 
 .superior-header {

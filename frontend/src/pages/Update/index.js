@@ -75,9 +75,10 @@ export default function Update() {
     return (
         <div className= "update-container">
             <Link className="up-link" to="/products">
-                <BackIcon/>
-                Volta pra listagem
-            </Link> 
+                    <BackIcon/>
+                        Volta pra listagem
+                </Link>
+            
 
             <div class="update-stock">
                     {products.map(products => (
@@ -123,8 +124,9 @@ export default function Update() {
 
                     <button type="submit" className="button" >Atualizar</button>
                 </form>
-                </div>
 
+                 </div>
+                 
             </div>
             
         </div>

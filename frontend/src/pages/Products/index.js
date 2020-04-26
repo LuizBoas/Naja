@@ -9,9 +9,17 @@ import { logout } from '../../services/auth';
 import api from '../../services/api';
 import './styles.css';
 
+
+
 export default function Products() {
     const [products, setProducts] = useState([]);
     const [allproducts, setallProducts] = useState([])
+    const [state, setState] = React.useState({
+        checkedTV: true,
+        checkedEL: true,
+        checkedVG: true,
+        checkedCL: true,
+    });
     
     const name = localStorage.getItem('name');
     const email = localStorage.getItem('email');
@@ -35,16 +43,6 @@ export default function Products() {
         }
         
     }
-    
-/*parte em densenvolvimento filter a baixo*/
-    
-
-    const [state, setState] = React.useState({
-        checkedTV: true,
-        checkedEL: true,
-        checkedVG: true,
-        checkedCL: true,
-    });
     
     async function handleChangeTV(event) {
         setState({ ...state, [event.target.name]: event.target.checked });
@@ -102,7 +100,6 @@ export default function Products() {
             });
             console.log(products);
         }
-        
     }
 
     async function handleChangeVG(event) {
@@ -132,7 +129,6 @@ export default function Products() {
             });
             console.log(products);
         }
-        
     }
 
     async function handleChangeCE(event) {
@@ -162,10 +158,7 @@ export default function Products() {
             });
             console.log(products);
         }
-        
     }
-
-/*parte em densenvolvimento filter a cima*/
 
     return (
         <div class="container">
@@ -185,31 +178,27 @@ export default function Products() {
                 <div class="sub-header">
                     <h1>Lista de produtos</h1>
                 
-            
-{/*parte em densenvolvimento filter a baixo*/}
-            <FormGroup row>
-                <FormControlLabel 
-                    control={<Switch checked={state.checkedTV} onChange={handleChangeTV} name="checkedTV" />}
-                    label="TVs"
-                />
-                <FormControlLabel
-                    control={<Switch checked={state.checkedEL} onChange={handleChangeEL} name="checkedEL"/>}
-                    label="Eletrodomésticos"
-                />
-                <FormControlLabel 
-                    control={<Switch checked={state.checkedVG} onChange={handleChangeVG} name="checkedVG"/>} 
-                    label="Videogames" 
-                />
-                <FormControlLabel 
-                    control={<Switch checked={state.checkedCL} onChange={handleChangeCE} name="checkedCL"/>} 
-                    label="Celulares" 
-                />
-            </FormGroup>
-
-            </div>
+                    <FormGroup row>
+                        <FormControlLabel 
+                            control={<Switch checked={state.checkedTV} onChange={handleChangeTV} name="checkedTV" />}
+                            label="TVs"
+                        />
+                        <FormControlLabel
+                            control={<Switch checked={state.checkedEL} onChange={handleChangeEL} name="checkedEL"/>}
+                            label="Eletrodomésticos"
+                        />
+                        <FormControlLabel 
+                            control={<Switch checked={state.checkedVG} onChange={handleChangeVG} name="checkedVG"/>} 
+                            label="Videogames" 
+                        />
+                        <FormControlLabel 
+                            control={<Switch checked={state.checkedCL} onChange={handleChangeCE} name="checkedCL"/>} 
+                            label="Celulares" 
+                        />
+                    </FormGroup>
+                    
+                </div>
             </header>
-{/*parte em densenvolvimento filter a cima^*/}
-
             <div class="stock">
                 <ul>
                     {products.map(products => (

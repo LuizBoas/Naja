@@ -7,7 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import BackIcon from '@material-ui/icons/ArrowBack';
 
-import logo from '../../assets/logo.png'; 
+import logo from '../../assets/logo2.png'; 
 import api from '../../services/api';
 import './styles.css';
 
@@ -41,6 +41,7 @@ export default function Register() {
                 }
             });
             alert(`Produto cadastrado com sucesso!`);
+            window.location.reload()
         } catch (err) {
             alert('Erro no cadastro, tente novamente');
         }
