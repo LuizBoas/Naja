@@ -13,14 +13,21 @@
     width: 100%;
     margin: 0 auto;
     margin-left: -130px;
+    border-right: 10px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.login {
+.App .login {
     width: 100%;
     float: left;
     
+}
+
+.App h1 {
+    color:#23b3b8;
+    margin-bottom: 30px;
+    margin-top: 10px;
 }

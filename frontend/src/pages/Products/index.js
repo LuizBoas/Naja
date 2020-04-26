@@ -4,12 +4,15 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
+import AddBoxIcon from '@material-ui/icons/AddBox';
+import AddToPhotosIcon from '@material-ui/icons/AddToPhotos';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+
 import logo from '../../assets/logo.png';
 import { logout } from '../../services/auth';
 import api from '../../services/api';
 import './styles.css';
-
-
 
 export default function Products() {
     const [products, setProducts] = useState([]);
@@ -169,9 +172,13 @@ export default function Products() {
                         <p><strong>Nome: </strong>{ name }</p>
                         <p><strong>Email: </strong>{ email }</p>
                     </div>
-                    <div class="new-logout">
-                        <Link to="/products/new" style={{ margin: "0 5% 0 0" }} class="button product">+Produto</Link>
-                        <Link to="/" class="button logout" onClick={ logout }>Logout</Link>
+                    <div class="new-logout" >
+                        <Link to="/products/new" style={{ margin: "0 5% 0 0" }} class="button product">
+                        < AddToPhotosIcon style={{ fontSize: 20, margin: "0 5% -3.5 0" }}/>Produtos
+                        </Link>
+                        <Link to="/" class="button logout" onClick={ logout }>
+                        <ExitToAppIcon  style={{ fontSize: 20, margin: "0 5% -3.5 0" }}/>
+                            Logout</Link>
                     </div>
                 </div>
 
@@ -215,9 +222,9 @@ export default function Products() {
                             </div>
 
                             <div class="buttons">
-                                <Link className="button" to={`/products/${products.id}`}>+ Detalhes</Link>
+                                <Link className="button" to={`/products/${products.id}`}>< AddBoxIcon style={{ fontSize: 20, margin: "2 5% -3.8 0" }}/>Detalhes</Link>
                                 <button class="button" onClick={() => { if (window.confirm('Você realmente deseja remover este item?')) handleDeleteProduct(products.id) } }  type="button">
-                                    Apagar
+                                <DeleteForeverIcon style={{ fontSize: 20, margin: "3 5% -3.9 0" }}/>Apagar
                                 </button>
                             </div>
 

@@ -56,7 +56,7 @@ export default function Register() {
                     <h1>Cadastro:</h1>
                     <p>Adcione um item ao seu estoque!</p>
                     <Link className="back-link" to="/products">
-                        <BackIcon size={16} color="#E02041"/>
+                        <BackIcon/>
                         Volta pra listagem
                     </Link>           
                 </section>
@@ -72,10 +72,10 @@ export default function Register() {
                     <FormControl component="fieldset">
                         <FormLabel component="legend"></FormLabel>
                         <RadioGroup value={tag} onChange={ e => setTag(e.target.value)}>
-                            <FormControlLabel className="select-primary" value="TVs" control={<Radio />} label="TVs" />
-                            <FormControlLabel value="Eletrodomésticos" control={<Radio />} label="Eletrodomésticos" />
-                            <FormControlLabel value="Videogames" control={<Radio />} label="Videogames" />
-                            <FormControlLabel className="select-last" value="Celulares" control={<Radio />} label="Celulares" />
+                            <FormControlLabel className="select-primary" value="TVs" control={<Radio color="primary" />} label="TVs" />
+                            <FormControlLabel value="Eletrodomésticos" control={<Radio color="primary" />} label="Eletrodomésticos" />
+                            <FormControlLabel value="Videogames" control={<Radio color="primary" />} label="Videogames" />
+                            <FormControlLabel className="select-last" value="Celulares" control={<Radio color="primary" />} label="Celulares" />
                         </RadioGroup>
                     </FormControl>
 

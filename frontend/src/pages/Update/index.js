@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BackIcon from '@material-ui/icons/ArrowBack';
 
+import UpdateIcon from '@material-ui/icons/Update';
+
 import api from '../../services/api';
 
 import './styles.css';
@@ -102,7 +104,7 @@ export default function Update() {
                         onChange={ e => setAmount(e.target.value)}
                     />
 
-                    <button type="submit" className="button">Atualizar</button>
+                    <button type="submit" className="button"><UpdateIcon  style={{ fontSize: 20, margin: "0 5% -3.5 0" }}/>Atualizar</button>
                 </form>
 
                 <form onSubmit={ handlePrice }>
@@ -112,7 +114,7 @@ export default function Update() {
                         onChange={ e => setPrice(e.target.value)}
                     />
 
-                    <button type="submit" className="button">Atualizar</button>
+                    <button type="submit" className="button"><UpdateIcon  style={{ fontSize: 20, margin: "0 5% -3.5 0" }}/>Atualizar</button>
                 </form>
 
                 <form onSubmit={ handleImage }>
@@ -122,7 +124,7 @@ export default function Update() {
                         onChange={ e => setImage(e.target.value)}
                     />
 
-                    <button type="submit" className="button" >Atualizar</button>
+                    <button type="submit" className="button"><UpdateIcon  style={{ fontSize: 20, margin: "0 5% -3.5 0" }}/>Atualizar</button>
                 </form>
 
                  </div>
