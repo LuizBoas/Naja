@@ -15,6 +15,12 @@ export default function Update() {
     const [price, setPrice] = useState('');
     const [image, setImage] = useState('');
 
+    function resetForm() {
+        setAmount("");
+        setPrice("");
+        setImage("");
+    }
+
     useEffect(() => {
         api.get(`${window.location.pathname}`)
             .then(response => {
@@ -34,7 +40,7 @@ export default function Update() {
             await api.put(`${window.location.pathname}/setAmount`, data);
             
             alert(`Quantidade atualizada!`);
-            window.location.reload()
+            resetForm()
         } catch (err) {
             alert('Erro em atualizar quantidade, tente novamente');
         }
@@ -51,7 +57,7 @@ export default function Update() {
             await api.put(`${window.location.pathname}/setPrice`, data);
 
             alert(`Preço atualizado!`);
-            window.location.reload()
+            resetForm()
         } catch (err) {
             alert('Erro em atualizar preço, tente novamente');
         }
@@ -68,7 +74,7 @@ export default function Update() {
             await api.put(`${window.location.pathname}/setImage`, data);
 
             alert(`Link da imagem atualizada!`);
-            window.location.reload()
+            resetForm()
         } catch (err) {
             alert('Erro em atualizar link da imagem, tente novamente');
         }

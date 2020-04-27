@@ -20,6 +20,14 @@ export default function Register() {
 
     const user = localStorage.getItem('name');
 
+    function resetForm() {
+        setName("");
+        setTag("");
+        setAmount("");
+        setPrice("");
+        setImage("");
+    }
+
     // e prever o comportamento do componente
     async function handleProducts(e) {
         e.preventDefault();
@@ -41,7 +49,7 @@ export default function Register() {
                 }
             });
             alert(`Produto cadastrado com sucesso!`);
-            window.location.reload()
+            resetForm()
         } catch (err) {
             alert('Erro no cadastro, tente novamente');
         }
