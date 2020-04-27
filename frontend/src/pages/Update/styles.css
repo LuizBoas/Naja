@@ -13,7 +13,7 @@
     float: left;
     width: 100%;
     background: #FFF;
-    
+    border-radius: 0 0 8px 8px;
 }
 
 .update-stock ul {
