@@ -12,9 +12,10 @@ import styles from './styles';
 export default function Products(){
     const navigation = useNavigation();
     const [products, setProducts] = useState([]);
+    
 
-    function navigationToUpdate(){
-        navigation.navigate('Update');
+    function navigationToUpdate(product){
+        navigation.navigate('Update', { product });
     }
 
     async function loadProducts(){
@@ -28,7 +29,6 @@ export default function Products(){
 
     }, []);
     
-
     return(
         <View style={styles.container}>
             <View style={styles.header}>
@@ -46,34 +46,31 @@ export default function Products(){
                 keyExtractor={product => String(product.id)}
                 showsVerticalScrollIndicator={false}
                 renderItem={({ item: product })=> (
-                    <View style={styles.products}>
-                        <Image 
-                            source={{uri: product.image.url}}
-                        />
+                <View style={styles.products}>
+                    <Image 
+                        source={{uri: product.image.url}} //nao ta pegando ainda
+                    />
+                    <Text style={styles.productsProperty}>Nome:</Text>
+                    <Text style={styles.productsValue}>{product.name}</Text>
 
-                        <Text style={styles.productsProperty}>Nome:</Text>
-                        <Text style={styles.productsValue}>{product.name}</Text>
+                    <Text style={styles.productsProperty}>Cartegoria:</Text>
+                    <Text style={styles.productsValue}>{product.tag}</Text>
 
-                        <Text style={styles.productsProperty}>Cartegoria:</Text>
-                        <Text style={styles.productsValue}>{product.tag}</Text>
+                    <Text style={styles.productsProperty}>Quantidade:</Text>
+                    <Text style={styles.productsValue}>{product.amount}</Text>
 
-                        <Text style={styles.productsProperty}>Quantidade:</Text>
-                        <Text style={styles.productsValue}>{product.amount}</Text>
-
-                        <Text style={styles.productsProperty}>Preço:</Text>
-                        <Text style={styles.productsValue}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(product.price)}</Text>
-                    
-                        <TouchableOpacity
-                            style={styles.detailsButton}
-                            onPress={navigationToUpdate}
-                        >
-                            <Text style={styles.detailsButtonText}> Ver mais detalhes</Text>
-                        </TouchableOpacity>
-                    </View>
-
+                    <Text style={styles.productsProperty}>Preço:</Text>
+                    <Text style={styles.productsValue}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(product.price)}</Text>
+                
+                    <TouchableOpacity
+                        style={styles.detailsButton}
+                        onPress={() => navigationToUpdate(product)}
+                    >
+                        <Text style={styles.detailsButtonText}> Ver mais detalhes</Text>
+                    </TouchableOpacity>
+                </View>
                 )}
             />
         </View>
-
     );
 }
