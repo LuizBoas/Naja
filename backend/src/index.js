@@ -4,7 +4,8 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: ''
+    // origin: 'http://localhost:3000'
     // origin: 'http://right-blood.surge.sh'
 }));
 app.use(express.json()); 

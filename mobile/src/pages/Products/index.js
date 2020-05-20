@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text, TouchableOpacity, FlatList } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import api from '../../service/api.js';
 import logoImg from '../../assets/logo.png';
-
 
 import styles from './styles';
 
 export default function Products(){
     const navigation = useNavigation();
     const [products, setProducts] = useState([]);
-    
+    const route = useRoute();
+
+    const name = route.params.name;
+    const email = route.params.email;  
 
     function navigationToUpdate(product){
         navigation.navigate('Update', { product });
@@ -22,6 +23,10 @@ export default function Products(){
         const response = await api.get('products');
 
         setProducts(response.data);
+    }
+
+    function logOut() {
+        navigation.navigate('Login');
     }
 
     useEffect(() => {
@@ -37,8 +42,11 @@ export default function Products(){
                     Total de <Text style={styles.headerTextBold}>0 casos</Text>. 
                 </Text>
             </View>
-                <Text style= {styles.userNome}>Goku da Silva </Text>
-                <Text style= {styles.userEmail}>gokuzinhosdasnovinhas@gmail.com</Text>
+                <Text style= {styles.userNome}>{ name }</Text>
+                <Text style= {styles.userEmail}>{ email }</Text>
+                <TouchableOpacity onPress={() => logOut()}>
+                    <Text>LogOut</Text>
+                </TouchableOpacity>
             
             <FlatList 
                 data={products}
