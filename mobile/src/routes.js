@@ -6,6 +6,7 @@ const AppSatck = createStackNavigator();
 
 import Login from './pages/Login';
 import Products from './pages/Products';
+import Detail from './pages/Detail';
 import Update from './pages/Update';
 import Register from './pages/Register';
 
@@ -16,6 +17,7 @@ export default function Routes() {
                 
                 <AppSatck.Screen name="Products" component={Products}/>
                 <AppSatck.Screen name="Update" component={Update}/>
+                <AppSatck.Screen name="Detail" component={Detail}/>
                 <AppSatck.Screen name="Register" component={Register}/>
             </AppSatck.Navigator>
         </NavigationContainer>

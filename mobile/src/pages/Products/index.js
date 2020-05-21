@@ -3,7 +3,13 @@ import { View, Image, Text, TouchableOpacity, FlatList, Alert, StyleSheet, Switc
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 import api from '../../service/api.js';
-import logoImg from '../../assets/logo.png';
+import logoImg from '../../assets/logo/logo.png';
+import phone from '../../assets/phone/phone.png';
+import tv from '../../assets/tv/tv.png';
+import eletro from '../../assets/eletro/eletro.png';
+import videogames from '../../assets/videogames/videogames.png';
+import delet from '../../assets/delete/delete.png';
+import arrowLeft from '../../assets/arrowLeft/arrowLeft.png'
 
 import styles from './styles';
 
@@ -13,6 +19,7 @@ export default function Products(){
 
     const [products, setProducts] = useState([]);
     const [allproducts, setallProducts] = useState([])
+    const [total, setTotal] = useState(0);
     
     //const name = route.params.name;
     //const email = route.params.email;
@@ -124,10 +131,11 @@ export default function Products(){
                 return (products.filter(products => products.tag !== "Celulares"));
             });
         }
+      
     }
 
-    function navigationToUpdate(product){
-        navigation.navigate('Update', { product });
+    function navigationToDetail(product){
+        navigation.navigate('Detail', { product });
     }
 
     async function confirmDelete(id) {
@@ -141,13 +149,12 @@ export default function Products(){
             ],
             { cancelable: false }
           );
-        
     }
 
     async function handleDeleteProduct(id) {
         await api.delete(`products/${id}`);
-        setProducts(products.filter(products => products.id !== id)); 
-
+        setProducts(products.filter(products => products.id !== id));
+        setTotal((products.filter(products => products.id !== id)).length); 
     }
     
     async function loadProducts(){
@@ -155,6 +162,7 @@ export default function Products(){
 
         setProducts(response.data);
         setallProducts(response.data);
+        setTotal(response.headers['count-first']);
     }
 
     function logOut() {
@@ -171,7 +179,7 @@ export default function Products(){
             <View style={styles.header}>
                 <Image source={ logoImg}/>
                 <Text style={styles.headerText}>
-                    Total de <Text style={styles.headerTextBold}>0 casos</Text>. 
+                    Total de <Text style={styles.headerTextBold}>{total} casos.</Text> 
                 </Text>
             </View>
                 <Text style= {styles.userNome}>{ "name" }</Text>
@@ -179,34 +187,38 @@ export default function Products(){
                 <TouchableOpacity onPress={() => logOut()}>
                     <Text>LogOut</Text>
                 </TouchableOpacity>
-            <View style={styles.switch}>
-                <Text>Tv</Text>
+            <View style={styles.listSwitch}>
+                <Image source={tv}></Image>
                 <Switch 
-                    trackColor={{ false: "#95a5a6", true: "#2c3e50" }}
-                    thumbColor={!checkedTV ? "#7f8c8d" : "#f1c40f"}
+                    trackColor={{ false: "#95a5a6", true: "#44d9e6" }}
+                    thumbColor={!checkedTV ? "#7f8c8d" : "#23b3b8"}
                     onValueChange={handleChangeTV}
                     value={checkedTV}
+                    style= {styles.switch}
                 />
-                <Text>Eletrodomesticos</Text>
+                <Image source={eletro}></Image>
                 <Switch 
-                    trackColor={{ false: "#95a5a6", true: "#2c3e50" }}
-                    thumbColor={!checkedEL ? "#7f8c8d" : "#f1c40f"}
+                    trackColor={{ false: "#95a5a6", true: "#44d9e6" }}
+                    thumbColor={!checkedEL ? "#7f8c8d" : "#23b3b8"}
                     onValueChange={handleChangeEL}
                     value={checkedEL}
+                    style= {styles.switch}
                 />
-                <Text>Celulares</Text>
+                <Image source={phone}></Image>
                 <Switch 
-                    trackColor={{ false: "#95a5a6", true: "#2c3e50" }}
-                    thumbColor={!checkedCL ? "#7f8c8d" : "#f1c40f"}
+                    trackColor={{ false: "#95a5a6", true: "#44d9e6" }}
+                    thumbColor={!checkedCL ? "#7f8c8d" : "#23b3b8"}
                     onValueChange={handleChangeCL}
                     value={checkedCL}
+                    style= {styles.switch}
                 />
-                <Text>VideoGames</Text>
+                <Image source={videogames}></Image>
                 <Switch 
-                    trackColor={{ false: "#95a5a6", true: "#2c3e50" }}
-                    thumbColor={!checkedVG ? "#7f8c8d" : "#f1c40f"}
+                    trackColor={{ false: "#95a5a6", true: "#44d9e6" }}
+                    thumbColor={!checkedVG ? "#7f8c8d" : "#23b3b8"}
                     onValueChange={handleChangeVG}
                     value={checkedVG}
+                    style= {styles.switch}
                 />          
             </View>
             
@@ -231,19 +243,22 @@ export default function Products(){
 
                     <Text style={styles.productsProperty}>Preço:</Text>
                     <Text style={styles.productsValue}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(product.price)}</Text>
-                
-                    <TouchableOpacity
-                        style={styles.detailsButton}
-                        onPress={() => navigationToUpdate(product)}
-                    >
-                        <Text style={styles.detailsButtonText}> Ver mais detalhes</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.detailsButton}
-                        onPress={() => confirmDelete(product.id)}
-                    >
-                        <Text style={styles.detailsButtonText}> Deletar</Text>
-                    </TouchableOpacity>
+                    <View style={styles.buttons}>
+                        <TouchableOpacity
+                            style={styles.detailsButton}
+                            onPress={() => navigationToDetail(product)}
+                        >
+                            <Image style={styles.buttonArrow} source={arrowLeft}/>
+                            <Text style={styles.detailsButtonText}> Ver mais detalhes</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.detailsButton}
+                            onPress={() => confirmDelete(product.id)}
+                        >
+                            <Image style={styles.buttonDelete} source={delet}/>
+                    
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 )}
             />

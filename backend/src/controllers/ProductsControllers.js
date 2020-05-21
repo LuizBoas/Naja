@@ -19,10 +19,12 @@ module.exports = {
     },
 
     async index(request, response) {
+        const [count] = await connection('products').count()
         const products = await connection('products')
             .select('*')
             .orderBy('amount');
-        
+
+        response.header('count-first', count ['count(*)'])
         return response.json(products);
     },
 

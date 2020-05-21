@@ -76,8 +76,41 @@ export default StyleSheet.create({
     detailsButtonText: {
         color: '#e02041',
         fontSize: 15,
-        fontWeight: 'bold'
-    }, 
+        fontWeight: 'bold',
+        marginLeft: -5
+    },
+    
+    listSwitch: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 10,
+        marginTop : 10,
+    },
+
+    switch: {
+        marginLeft: -8,
+        marginRight: 8,
+    },
+
+    buttons:{
+        flexDirection: "row",
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: -8,
+        marginTop : -10,
+
+    },
+
+    buttonDelete: {
+       marginRight: -9, 
+    },
+
+    buttonArrow: {
+        marginLeft: -2,
+       
+
+    }
 });
 
 
