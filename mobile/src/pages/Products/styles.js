@@ -39,7 +39,6 @@ export default StyleSheet.create({
         marginBottom: 1,
         marginTop: 25,
         color: '#000000',
-        
     },
 
     userEmail: {
@@ -47,7 +46,6 @@ export default StyleSheet.create({
         marginLeft: 4,
         marginBottom: 16,
         color: '#000000',
-       
     },
 
     productsList: {
@@ -61,14 +59,75 @@ export default StyleSheet.create({
         marginBottom: 16,
     },
 
+    normal: {
+        backgroundColor: '#FFF',
+        padding: 17,
+        borderRadius: 8,
+        marginBottom: 16,
+        borderBottomWidth: 5,
+        borderLeftWidth: 5,
+        borderRightWidth: 5,
+        borderTopWidth: 5,
+        borderColor: '#FFF'
+    },
+
+    esgotado: {
+        backgroundColor: '#FFF',
+        padding: 17,
+        borderRadius: 8,
+        marginBottom: 16,
+        borderBottomWidth: 5,
+        borderLeftWidth: 5,
+        borderRightWidth: 5,
+        borderTopWidth: 5,
+        borderColor: '#F00'
+    },
+
+    baixo: {
+        backgroundColor: '#FFF',
+        padding: 17,
+        borderRadius: 8,
+        marginBottom: 16,
+        borderBottomWidth: 5,
+        borderLeftWidth: 5,
+        borderRightWidth: 5,
+        borderTopWidth: 5,
+        borderColor: '#FF0'
+    },
+
+    imageProducts: {
+        borderRadius: 5,
+        width: 120,
+        height: 120,
+    },
+
+    imageIcone:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        
+    },
+
+    edit: {
+        marginRight: -9,
+        marginTop: -7
+
+    },
+
+    productsPropertyName:{
+        fontSize: 14,
+        color: '#41414d',
+        fontWeight: 'bold',
+    },
+
     productsProperty:{
+        marginTop: -14,
         fontSize: 14,
         color: '#41414d',
         fontWeight: 'bold',
     },
 
     productsValue: {
-        marginTop: 8,
+        marginTop: 1,
         fontSize: 15,
         marginBottom: 24,
         color: '#737380'
@@ -117,7 +176,8 @@ export default StyleSheet.create({
         marginLeft: -2,
         marginRight: 4,
         alignItems: 'center',
-    }
+    },
+
 });
 
 

@@ -28,16 +28,19 @@ export default function Detail(){
 
             <View style={styles.products}>
                 <Image 
-                    source={{uri: product.image.url}} //nao ta pegando ainda
+                    style={styles.imageProducts}
+                    source={{
+                    uri: product.image,
+                    }}
                 />
 
-                <Text style={styles.productsProperty}>Código:</Text>
+                <Text style={styles.productsPropertyCodigo}>Código:</Text>
                 <Text style={styles.productsValue}>{product.id}</Text>
                 
                 <Text style={styles.productsProperty}>Nome:</Text>
                 <Text style={styles.productsValue}>{product.name}</Text>
 
-                <Text style={styles.productsProperty}>Cartegoria:</Text>
+                <Text style={styles.productsProperty}>Categoria:</Text>
                 <Text style={styles.productsValue}>{product.tag}</Text>
 
                 <Text style={styles.productsProperty}>Quantidade:</Text>

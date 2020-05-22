@@ -15,8 +15,6 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
 
-   
-    
     products: {
         padding: 24,
         borderRadius: 8,
@@ -25,16 +23,29 @@ export default StyleSheet.create({
         marginTop: 20,
     },
 
-    productsProperty:{
+    productsPropertyCodigo:{
         fontSize: 14,
         color: '#41414d',
         fontWeight: 'bold',
-        marginTop: 24,
+    },
+
+    imageProducts: {
+        borderRadius: 5,
+        width: 120,
+        height: 120,
+    },
+
+    productsProperty:{
+        marginTop: -14,
+        fontSize: 14,
+        color: '#41414d',
+        fontWeight: 'bold',
     },
 
     productsValue: {
-        marginTop: 8,
+        marginTop: 1,
         fontSize: 15,
+        marginBottom: 24,
         color: '#737380'
     },
 

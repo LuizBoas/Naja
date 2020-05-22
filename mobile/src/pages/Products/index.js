@@ -11,6 +11,7 @@ import videogames from '../../assets/videogames/videogames.png';
 import delet from '../../assets/delete/delete.png';
 import arrowLeft from '../../assets/arrowLeft/arrowLeft.png'
 import logout from '../../assets/logout/logout.png';
+import edit from '../../assets/editar/editar.png';
 
 import styles from './styles';
 
@@ -139,6 +140,10 @@ export default function Products(){
         navigation.navigate('Detail', { product });
     }
 
+    function navigationToUpdate(product){
+        navigation.navigate('Update', { product });
+    }
+
     async function confirmDelete(id) {
         Alert.alert(
             "Excluir:",
@@ -234,14 +239,26 @@ export default function Products(){
                 keyExtractor={product => String(product.id)}
                 showsVerticalScrollIndicator={false}
                 renderItem={({ item: product })=> (
-                <View style={styles.products}>
-                    <Image 
-                        source={{uri: product.image.url}} //nao ta pegando ainda
-                    />
-                    <Text style={styles.productsProperty}>Nome:</Text>
+                <View style={styles.products} style={ product.amount === 0 ? styles.esgotado : 
+                product.amount < 10 ? styles.baixo : styles.normal}>
+                    <View style={styles.imageIcone}>
+                        <Image 
+                             style={styles.imageProducts}
+                            source={{
+                                uri: product.image,
+                              }}
+                        />
+                        <TouchableOpacity
+                            onPress={() => navigationToUpdate(product)}
+                        >
+                            <Image style={styles.edit}source={edit}/>
+                    
+                        </TouchableOpacity>
+                    </View>
+                    <Text style={styles.productsPropertyName}>Nome:</Text>
                     <Text style={styles.productsValue}>{product.name}</Text>
 
-                    <Text style={styles.productsProperty}>Cartegoria:</Text>
+                    <Text style={styles.productsProperty}>Categoria:</Text>
                     <Text style={styles.productsValue}>{product.tag}</Text>
 
                     <Text style={styles.productsProperty}>Quantidade:</Text>
