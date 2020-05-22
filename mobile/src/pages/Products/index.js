@@ -10,6 +10,7 @@ import eletro from '../../assets/eletro/eletro.png';
 import videogames from '../../assets/videogames/videogames.png';
 import delet from '../../assets/delete/delete.png';
 import arrowLeft from '../../assets/arrowLeft/arrowLeft.png'
+import logout from '../../assets/logout/logout.png';
 
 import styles from './styles';
 
@@ -178,15 +179,20 @@ export default function Products(){
         <View style={styles.container}>
             <View style={styles.header}>
                 <Image source={ logoImg}/>
-                <Text style={styles.headerText}>
-                    Total de <Text style={styles.headerTextBold}>{total} casos.</Text> 
-                </Text>
-            </View>
-                <Text style= {styles.userNome}>{ "name" }</Text>
-                <Text style= {styles.userEmail}>{ "email" }</Text>
+                
                 <TouchableOpacity onPress={() => logOut()}>
-                    <Text>LogOut</Text>
-                </TouchableOpacity>
+                        <Image styler={styles.buttonLogout}source={logout}/>
+                    </TouchableOpacity>
+            </View>
+            <View style={styles.subHeader}>
+                <Text style={styles.subHeaderText}>
+                    Total de <Text style={styles.subHeaderTextBold}>{total} casos.</Text> 
+                </Text>
+                <View>
+                    <Text style= {styles.userNome}>{ "name" }</Text>
+                    <Text style= {styles.userEmail}>{ "email" }</Text>
+                </View>
+            </View>    
             <View style={styles.listSwitch}>
                 <Image source={tv}></Image>
                 <Switch 

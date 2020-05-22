@@ -12,16 +12,23 @@ export default StyleSheet.create({
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        
     },
 
-    headerText: {
-        
+    subHeader: {
+        flexDirection: 'row-reverse',
+        justifyContent: 'space-between',
+    },
+
+    subHeaderText: {
+        marginLeft: 150,
+        marginTop: 4,
         fontSize: 15,
         color: '#737380',
     },
 
-    headerTextBold: {
+   subHeaderTextBold: {
         fontWeight: 'bold'
 
     },
@@ -30,7 +37,7 @@ export default StyleSheet.create({
         fontSize: 15,
         marginLeft: 4,
         marginBottom: 1,
-        marginTop: 15,
+        marginTop: 25,
         color: '#000000',
         
     },
@@ -77,7 +84,7 @@ export default StyleSheet.create({
         color: '#e02041',
         fontSize: 15,
         fontWeight: 'bold',
-        marginLeft: -5
+        marginLeft: -5,
     },
     
     listSwitch: {
@@ -108,8 +115,8 @@ export default StyleSheet.create({
 
     buttonArrow: {
         marginLeft: -2,
-       
-
+        marginRight: 4,
+        alignItems: 'center',
     }
 });
 

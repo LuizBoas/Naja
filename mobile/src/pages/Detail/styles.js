@@ -15,12 +15,7 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
 
-    headerText: {
-        marginRight: 3,
-        
-        fontSize: 15,
-        color: '#737380',
-    },
+   
     
     products: {
         padding: 24,
