@@ -175,6 +175,10 @@ export default function Products(){
         navigation.navigate('Login');
     }
 
+    function register() {
+        navigation.navigate('Register');
+    }
+
     useEffect(() => {
         loadProducts();
 
@@ -187,7 +191,7 @@ export default function Products(){
                 
                 <TouchableOpacity onPress={() => logOut()}>
                         <Image styler={styles.buttonLogout}source={logout}/>
-                    </TouchableOpacity>
+                </TouchableOpacity>
             </View>
             <View style={styles.subHeader}>
                 <Text style={styles.subHeaderText}>
@@ -232,6 +236,10 @@ export default function Products(){
                     style= {styles.switch}
                 />          
             </View>
+
+            <TouchableOpacity onPress={() => register()}>
+                <Text>Cadastrar</Text>
+            </TouchableOpacity>
             
             <FlatList 
                 data={products}

@@ -6,7 +6,6 @@ import styles from './styles';
 import logoImg from '../../assets/logo/logo.png';
 import back from '../../assets/back/back.png';
 
-
 export default function Detail(){
     const navigation = useNavigation();
     const route = useRoute();
