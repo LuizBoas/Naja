@@ -178,6 +178,12 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
 
+    cadastrar: {
+        marginBottom: 10
+        
+
+    }
+
 });
 
 

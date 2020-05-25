@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Text, TouchableOpacity, FlatList, Alert, StyleSheet, Switch } from 'react-native';
+import { View, Image, Text, TouchableOpacity, FlatList, Alert, StyleSheet, Switch, Button } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 import api from '../../service/api.js';
@@ -293,6 +293,9 @@ export default function Products(){
                 </View>
                 )}
             />
+            <View style={styles.cadastrar}>
+                <Button title="Cadastrar novo item" color='#23b3b8' onPress={() =>  register()} />
+            </View>
         </View>
     );
 }
