@@ -17,34 +17,32 @@ export default StyleSheet.create({
     },
 
     subHeader: {
-        flexDirection: 'row-reverse',
+        flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'center',
     },
 
     subHeaderText: {
-        marginLeft: 150,
-        marginTop: 4,
         fontSize: 15,
         color: '#737380',
     },
 
    subHeaderTextBold: {
         fontWeight: 'bold'
+    },
 
+    userHeader: {
+        margin: 10,
+        alignContent: 'center',
     },
 
     userNome: {
         fontSize: 15,
-        marginLeft: 4,
-        marginBottom: 1,
-        marginTop: 25,
         color: '#000000',
     },
 
     userEmail: {
         fontSize: 15,
-        marginLeft: 4,
-        marginBottom: 16,
         color: '#000000',
     },
 
@@ -180,9 +178,7 @@ export default StyleSheet.create({
 
     cadastrar: {
         marginBottom: 10
-        
-
-    }
+    },
 
 });
 

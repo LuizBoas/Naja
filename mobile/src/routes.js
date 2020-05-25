@@ -14,7 +14,7 @@ export default function Routes() {
     return (
         <NavigationContainer>
             <AppSatck.Navigator screenOptions={{headerShown: false}}>
-                
+                <AppSatck.Screen name="Login" component={Login}/>
                 <AppSatck.Screen name="Products" component={Products}/>
                 <AppSatck.Screen name="Update" component={Update}/>
                 <AppSatck.Screen name="Detail" component={Detail}/>

@@ -23,8 +23,8 @@ export default function Products(){
     const [allproducts, setallProducts] = useState([])
     const [total, setTotal] = useState(0);
     
-    //const name = route.params.name;
-    //const email = route.params.email;
+    const name = route.params.name;
+    const email = route.params.email;
 
     const [checkedTV, setcheckedTV] = useState(true);
     const [checkedEL, setcheckedEL] = useState(true);
@@ -176,7 +176,11 @@ export default function Products(){
     }
 
     function register() {
-        navigation.navigate('Register');
+        navigation.navigate('Register', {email});
+    }
+
+    function update() {
+        loadProducts();
     }
 
     useEffect(() => {
@@ -188,18 +192,20 @@ export default function Products(){
         <View style={styles.container}>
             <View style={styles.header}>
                 <Image source={ logoImg}/>
+
+                <Text style={styles.subHeaderText}>
+                    Total de <Text style={styles.subHeaderTextBold}>{total} casos.</Text> 
+                </Text>
                 
                 <TouchableOpacity onPress={() => logOut()}>
                         <Image styler={styles.buttonLogout}source={logout}/>
                 </TouchableOpacity>
             </View>
             <View style={styles.subHeader}>
-                <Text style={styles.subHeaderText}>
-                    Total de <Text style={styles.subHeaderTextBold}>{total} casos.</Text> 
-                </Text>
-                <View>
-                    <Text style= {styles.userNome}>{ "name" }</Text>
-                    <Text style= {styles.userEmail}>{ "email" }</Text>
+                
+                <View style={styles.userHeader}>
+                    <Text style= {styles.userNome}>{ name }</Text>
+                    <Text style= {styles.userEmail}>{ email }</Text>
                 </View>
             </View>    
             <View style={styles.listSwitch}>
@@ -236,16 +242,12 @@ export default function Products(){
                     style= {styles.switch}
                 />          
             </View>
-
-            <TouchableOpacity onPress={() => register()}>
-                <Text>Cadastrar</Text>
-            </TouchableOpacity>
             
             <FlatList 
                 data={products}
                 style={styles.productslist}
                 keyExtractor={product => String(product.id)}
-                showsVerticalScrollIndicator={false}
+                showsVerticalScrollIndicator={true}
                 renderItem={({ item: product })=> (
                 <View style={styles.products} style={ product.amount === 0 ? styles.esgotado : 
                 product.amount < 10 ? styles.baixo : styles.normal}>
@@ -295,6 +297,10 @@ export default function Products(){
             />
             <View style={styles.cadastrar}>
                 <Button title="Cadastrar novo item" color='#23b3b8' onPress={() =>  register()} />
+            </View>
+
+            <View style={styles.cadastrar}>
+                <Button title="Atualizar lista de produtos" color='#23b3b8' onPress={() =>  update()} />
             </View>
         </View>
     );

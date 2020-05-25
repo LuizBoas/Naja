@@ -10,14 +10,15 @@ import back from '../../assets/back/back.png';
 import styles from './styles';
 
 export default function Register(){
+    const route = useRoute(); 
+
     const [name, setName] = useState('');
     const [tag, setTag] = useState('TVs');
     const [amount, setAmount] = useState('');
     const [price, setPrice] = useState(''); 
     const [image, setImage] = useState('');
 
-    const user = "user";
-    
+    const user = route.params.email;    
 
     function navigateBack(){
         navigation.goBack()
