@@ -15,7 +15,7 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
 
-    products: {
+    product: {
         padding: 24,
         borderRadius: 8,
         backgroundColor: '#FFF',
@@ -24,15 +24,27 @@ export default StyleSheet.create({
     },
 
     productsPropertyCodigo:{
-        fontSize: 14,
-        color: '#41414d',
-        fontWeight: 'bold',
+        marginLeft: 15,
+        marginTop: -5,
+        marginBottom: 10,
+        fontSize: 15,
+        color: '#737380',
+    },
+
+    numCod: {
+        fontWeight: 'bold'
+
+    },
+    tag:{
+        marginLeft: 33,
+        marginTop: -3
     },
 
     imageProducts: {
         borderRadius: 5,
         width: 120,
         height: 120,
+        marginBottom: 15,
     },
 
     productsProperty:{
@@ -49,10 +61,46 @@ export default StyleSheet.create({
         color: '#737380'
     },
 
-    contactBox: {
-        padding: 24,
-        borderRadius: 8,
-        backgroundColor: '#FFF',
-        marginBottom: 16
+    productsInput: {
+        marginTop: 1,
+        fontSize: 15,
+        marginBottom: 24,
+        paddingLeft: 5,
+        height: 45,
+        width: '80%',
+        borderBottomWidth: 2,
+        borderLeftWidth: 2,
+        borderTopWidth: 2,
+        borderColor: '#23b3b8',
+        borderBottomLeftRadius: 8,
+       
+    },
+
+    inputAll: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+
+    },
+
+    action: {
+        marginTop: 1,
+        backgroundColor: '#23b3b8',
+        borderRadius: 1,
+        height: 45,
+        width: '25%',
+        justifyContent: 'center',
+        marginBottom: 24,
+        alignItems: 'center'
+    },
+  
+    buttonText: {
+        color: '#ffffff',
+        fontWeight: 'bold',
+    },
+    imageIcone:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        
     }
 })

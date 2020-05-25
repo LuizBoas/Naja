@@ -37,10 +37,18 @@ export default StyleSheet.create({
     },
 
     productsValue: {
-        marginTop: 5,
+        marginTop: 2,
         fontSize: 15,
         marginBottom: 24,
-        color: '#737380'
+        paddingLeft: 5,
+        height: 45,
+        width: '100%',
+        borderBottomWidth: 2,
+        borderLeftWidth: 2,
+        borderTopWidth: 2,
+        borderRightWidth: 2,
+        borderColor: '#23b3b8',
+        borderRadius: 8,
     },
 
     action: {
@@ -61,7 +69,7 @@ export default StyleSheet.create({
     buttonText: {
         color: '#ffffff',
         fontWeight: 'bold',
-    }
+    },
 
 
 })
