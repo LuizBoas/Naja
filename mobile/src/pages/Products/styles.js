@@ -7,6 +7,7 @@ export default StyleSheet.create({
         flex: 1,
         paddingHorizontal: 24,
         paddingTop: Constants.statusBarHeight + 20,
+        
     },
 
     header: {
@@ -102,13 +103,11 @@ export default StyleSheet.create({
     imageIcone:{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        
     },
 
     edit: {
         marginRight: -9,
         marginTop: -7
-
     },
 
     productsPropertyName:{
@@ -176,10 +175,19 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
 
-    cadastrar: {
-        marginBottom: 10
-    },
-
+    rodape: {
+        paddingHorizontal: 30,
+        backgroundColor: '#23b3b8',
+        marginLeft: -24,
+        marginRight: -24,
+        paddingVertical: 6,
+        flexDirection: "row",
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderBottomWidth: 3,
+        borderTopWidth: 3,
+        borderColor: '#44d9e6',
+    }
 });
 
 

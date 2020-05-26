@@ -1,6 +1,10 @@
 import React from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, StyleSheet, Button, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+
+import image from '../../assets/templateLogin/login.png';
+import icone from '../../assets/login/login.png';
+import styles from './styles';
 
 import * as Google from "expo-google-app-auth";
 
@@ -39,16 +43,16 @@ const ANDROID_CLIENT_ID =
 
     return(
         <View style={styles.container}>
-            <Button title="Login with Google" onPress={() => signInWithGoogle()} />
+            <Image source={image} style={styles.image}/>
+                <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => signInWithGoogle()}
+                    >
+                    <Image style={styles.icone} source={icone}/>
+                    <Text style={styles.text}>Login with Google</Text>
+                </TouchableOpacity>
+            
         </View>
     )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});

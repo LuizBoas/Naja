@@ -12,6 +12,8 @@ import delet from '../../assets/delete/delete.png';
 import arrowLeft from '../../assets/arrowLeft/arrowLeft.png'
 import logout from '../../assets/logout/logout.png';
 import edit from '../../assets/editar/editar.png';
+import reload from '../../assets/reload/reload.png';
+import plus from '../../assets/plus/plus.png';
 
 import styles from './styles';
 
@@ -19,13 +21,13 @@ export default function Products(){
     const route = useRoute(); 
     const navigation = useNavigation();
 
+    const name = route.params.name;
+    const email = route.params.email;
+
     const [products, setProducts] = useState([]);
     const [allproducts, setallProducts] = useState([])
     const [total, setTotal] = useState(0);
     
-    const name = route.params.name;
-    const email = route.params.email;
-
     const [checkedTV, setcheckedTV] = useState(true);
     const [checkedEL, setcheckedEL] = useState(true);
     const [checkedVG, setcheckedVG] = useState(true);
@@ -133,7 +135,6 @@ export default function Products(){
                 return (products.filter(products => products.tag !== "Celulares"));
             });
         }
-      
     }
 
     function navigationToDetail(product){
@@ -151,16 +152,20 @@ export default function Products(){
             [
                 { text: "Sim", onPress: () => (handleDeleteProduct(id)) },
                 { text: "Cancelar", onPress: () => console.log("Cancel Pressed")}
-              
             ],
             { cancelable: false }
           );
     }
 
     async function handleDeleteProduct(id) {
-        await api.delete(`products/${id}`);
-        setProducts(products.filter(products => products.id !== id));
-        setTotal((products.filter(products => products.id !== id)).length); 
+        try {
+            await api.delete(`products/${id}`);
+            setProducts(products.filter(products => products.id !== id));
+            setTotal((products.filter(products => products.id !== id)).length);
+            alert(`Item removido!`);
+        } catch (err) {
+            alert('Erro ao deletar, tente novamente.')
+        } 
     }
     
     async function loadProducts(){
@@ -204,8 +209,8 @@ export default function Products(){
             <View style={styles.subHeader}>
                 
                 <View style={styles.userHeader}>
-                    <Text style= {styles.userNome}>{ name }</Text>
-                    <Text style= {styles.userEmail}>{ email }</Text>
+                    <Text style= {styles.userNome}>{name} </Text>
+                    <Text style= {styles.userEmail}> {email} </Text>
                 </View>
             </View>    
             <View style={styles.listSwitch}>
@@ -295,12 +300,20 @@ export default function Products(){
                 </View>
                 )}
             />
-            <View style={styles.cadastrar}>
-                <Button title="Cadastrar novo item" color='#23b3b8' onPress={() =>  register()} />
-            </View>
+            <View style={styles.rodape}>
+                <TouchableOpacity
+                        style={styles.reload}
+                        onPress={() =>  update()}
+                    >
+                    <Image style={styles.buttonDelete} source={reload}/>
+                </TouchableOpacity>
 
-            <View style={styles.cadastrar}>
-                <Button title="Atualizar lista de produtos" color='#23b3b8' onPress={() =>  update()} />
+                <TouchableOpacity
+                        style={styles.plus}
+                        onPress={() =>  register()}
+                    >
+                    <Image style={styles.buttonDelete} source={plus}/>
+                </TouchableOpacity>
             </View>
         </View>
     );
