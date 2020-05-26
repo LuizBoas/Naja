@@ -10,10 +10,10 @@ import * as Google from "expo-google-app-auth";
 
 const IOS_CLIENT_ID =
   "your-ios-client-id";
-const ANDROID_CLIENT_ID =
-  "327559392172-3s80ivlojjtiore2v7j41psk2kcffi09.apps.googleusercontent.com";
+const ANDROID_CLIENT_ID = "327559392172-3s0qrr6rrptfqmlesj07msm8l3ell1in.apps.googleusercontent.com";
+const STANDALONE_ANDROID = "327559392172-0ueqkm85ksonf4s6o5r4lfetdhrsb390.apps.googleusercontent.com";
 
-  export default function Login(){
+export default function Login(){
     const navigation = useNavigation();
 
     function userData(name, email){
@@ -23,6 +23,7 @@ const ANDROID_CLIENT_ID =
     async function signInWithGoogle() {
         try {
             const result = await Google.logInAsync({
+            androidStandaloneAppClientId: STANDALONE_ANDROID,
             iosClientId: IOS_CLIENT_ID,
             androidClientId: ANDROID_CLIENT_ID,
             scopes: ["profile", "email"]

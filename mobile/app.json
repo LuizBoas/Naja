@@ -27,7 +27,13 @@
     },
     "android": {
       "package": "com.codex.naja",
-      "versionCode": 1
+      "versionCode": 1,
+      "config": {
+        "googleSignIn": {
+          "apiKey": "AIzaSyDv8yVbP_UVTsjMBdWxlzmMmrF8gDyceEQ",
+          "certificateHash": "CDCE7E68F05FE029480BA22120F3D95E0619E5F0"
+        }
+      }
     }
   }
 }
